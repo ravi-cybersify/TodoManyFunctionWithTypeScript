@@ -8,7 +8,9 @@ const App:React.FC = ()=> {
   return (
     <div className="">
        <Routes>
-        <Route path="/" element={<MyDays />} />
+        <Route path="/MyDay" element={<MyDays />} />
+        <Route path="/important" element={<MyDays />} />
+        <Route path="/Tasks" element={<MyDays />} />
         <Route path="/add" element={<AddTodo />} />
        </Routes>
     </div>

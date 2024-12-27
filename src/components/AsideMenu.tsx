@@ -1,6 +1,6 @@
 import React from 'react'
 import { CiSettings } from "react-icons/ci";
-import { FaStar } from "react-icons/fa";
+import { IoIosStar } from "react-icons/io";
 import { IoBagCheck } from "react-icons/io5";
 import List from './lib/List.tsx';
 
@@ -13,10 +13,10 @@ const AsideMenu:React.FC = () => {
     const Lists:list[] = [
         {
             icon: <CiSettings size={28}/>,
-            name: 'My Day'
+            name: 'MyDay'
         },
         {
-            icon: <FaStar size={28} />,
+            icon: <IoIosStar size={28} />,
             name: 'Important'
         },
         {
@@ -26,17 +26,17 @@ const AsideMenu:React.FC = () => {
     ]
   return (
     <div className='px-12 py-12 flex flex-col gap-4'>
-      <h3 className='text-2xl'>Project To-Do</h3>
+      <h3 className='text-2xl font-bold'>Project To-Do</h3>
       <div className="">
-        <ul className='flex flex-col gap-5'>
+        <div className='flex flex-col gap-5'>
             {
                 Lists.map((item,index)=>(
-                    <li key={index} className=''>
+                    <div key={index} className='cursor-pointer'>
                         <List icon={item.icon} name={item.name} />
-                    </li>
+                    </div>
                 ))
             }
-        </ul>
+        </div>
       </div>
     </div>
   )
