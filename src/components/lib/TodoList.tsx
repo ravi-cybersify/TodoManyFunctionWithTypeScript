@@ -30,11 +30,17 @@ const TodoList: React.FC<NameTodo> = ({
   date
 }) => {
   const [newText, setNewText] = useState<string>(name);
+  // console.log("object", date);
 
   const dispatch = useDispatch();
+  
   const handleDelete = (id: number) => {
-    complete && dispatch(remove(id));
+    const result = window.confirm("Want to delete?");
+    if (result && complete) {
+      dispatch(remove(id));
+    }
   };
+  
   const handleComplete = (id: number) => {
     dispatch(completed(id));
   };
@@ -51,9 +57,13 @@ const TodoList: React.FC<NameTodo> = ({
     dispatch(editTodo({ id, newText }));
   };
 
+ 
+
   const handleImportant = (id: number) => {
     dispatch(ImportantTodo(id));
   };
+
+ 
 
   return (
     <div className="flex justify-between items-center mx-4 border my-3 px-4 py-4 bg-white rounded">
@@ -65,6 +75,7 @@ const TodoList: React.FC<NameTodo> = ({
             value={newText}
             onChange={handleChange}
           />
+         
           <button
             type="button"
             className="px-8 py-2 text-white bg-green-400"
@@ -82,7 +93,6 @@ const TodoList: React.FC<NameTodo> = ({
             >
               <IoIosStar size={20} />
             </span>
-
             <input type="checkbox" checked={complete} name="" id="" />
             <span className="text-md font-semibold">{name}</span>
             <p>{date}</p>

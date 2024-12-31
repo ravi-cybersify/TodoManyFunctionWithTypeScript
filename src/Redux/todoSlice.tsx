@@ -53,6 +53,7 @@ const todoSlice = createSlice({
             state.Todos = state.Todos?.map((item)=> item.id === id ? {...item, todo:newText, isEditing:!item.isEditing} : item)
             localStorage.setItem('todos', JSON.stringify(state.Todos));
         },
+        
         ImportantTodo(state,action:PayloadAction<number>){
              state.Todos = state.Todos?.map((item)=> item.id === action.payload ? {...item , isImportant: !item.isImportant} : item) ;
              localStorage.setItem('todos', JSON.stringify(state.Todos));

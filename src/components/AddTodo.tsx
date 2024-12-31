@@ -15,7 +15,7 @@ const AddTodo: React.FC = () => {
   };
   const handleAdd = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    if (inputVal !== "") {
+    if (inputVal !== "" && day) {
       dispatch(
         add({
           id: Date.now(),
@@ -27,8 +27,12 @@ const AddTodo: React.FC = () => {
         })
       );
       navigation("/MyDay");
+      setInputVal("");
     }
-    setInputVal("");
+    else{
+      alert("please fill input field and select Date");
+    }
+    
   };
 
   // const date = moment().format("MMM Do YY");
